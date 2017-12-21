@@ -12,13 +12,4 @@ for private_key in $(find /secrets -type f -name '*.gpg') ; do
     fi
 done
 
-for d in /source/* ; do
-    if [ -d "$d" ] ; then
-        (
-            set -x
-            cd "$d"
-            mk-build-deps --install --remove --tool "apt-get --no-install-recommends --yes"
-            debuild $DEBUILD_OPTS --lintian-opts $LINTIAN_OPTS --allow-root
-        )
-    fi
-done
+exec "$@"

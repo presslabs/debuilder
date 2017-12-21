@@ -11,4 +11,5 @@ WORKDIR /source
 VOLUME ["/target", "/source", "/secrets"]
 
 COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["make", "binary"]
