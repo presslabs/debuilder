@@ -5,7 +5,9 @@ ENV DEBUILD_OPTS="-us -uc -b"
 
 RUN set -ex \
     && apt-get update \
-    && apt-get install -y devscripts debhelper build-essential equivs software-properties-common quilt dh-autoreconf \
+    && apt-get install -y devscripts debhelper build-essential equivs \
+       software-properties-common quilt dh-autoreconf pkg-config cmake \
+       libz-dev libcurl4-gnutls-dev libssh2-1-dev libhttp-parser-dev libkrb5-dev \
     && mkdir -p /target /source /secrets
 WORKDIR /source
 VOLUME ["/target", "/source", "/secrets"]
