@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN set -ex \
     && apt-get update \
-    && apt-get install -y dh-python python-sphinx devscripts debhelper build-essential equivs software-properties-common quilt dh-autoreconf uuid-dev \
+    && apt-get install -y dh-python python3-sphinx devscripts debhelper build-essential equivs software-properties-common quilt dh-autoreconf uuid-dev \
     && mkdir -p /target /source /secrets
 WORKDIR /source
 VOLUME ["/target", "/source", "/secrets"]
